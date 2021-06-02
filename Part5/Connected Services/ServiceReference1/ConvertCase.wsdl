@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ToLowerCase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ToLowerCaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ToLowerCaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ToUpperCase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ToUpperCaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ToUpperCaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InvertCase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InvertCaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InvertCaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ToLowerCaseSoapIn">
+    <wsdl:part name="parameters" element="tns:ToLowerCase" />
+  </wsdl:message>
+  <wsdl:message name="ToLowerCaseSoapOut">
+    <wsdl:part name="parameters" element="tns:ToLowerCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ToUpperCaseSoapIn">
+    <wsdl:part name="parameters" element="tns:ToUpperCase" />
+  </wsdl:message>
+  <wsdl:message name="ToUpperCaseSoapOut">
+    <wsdl:part name="parameters" element="tns:ToUpperCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvertCaseSoapIn">
+    <wsdl:part name="parameters" element="tns:InvertCase" />
+  </wsdl:message>
+  <wsdl:message name="InvertCaseSoapOut">
+    <wsdl:part name="parameters" element="tns:InvertCaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConvertCaseSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ToLowerCase">
+      <wsdl:input message="tns:ToLowerCaseSoapIn" />
+      <wsdl:output message="tns:ToLowerCaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ToUpperCase">
+      <wsdl:input message="tns:ToUpperCaseSoapIn" />
+      <wsdl:output message="tns:ToUpperCaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InvertCase">
+      <wsdl:input message="tns:InvertCaseSoapIn" />
+      <wsdl:output message="tns:InvertCaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConvertCaseSoap" type="tns:ConvertCaseSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToLowerCase">
+      <soap:operation soapAction="http://tempuri.org/ToLowerCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToUpperCase">
+      <soap:operation soapAction="http://tempuri.org/ToUpperCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvertCase">
+      <soap:operation soapAction="http://tempuri.org/InvertCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertCaseSoap12" type="tns:ConvertCaseSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToLowerCase">
+      <soap12:operation soapAction="http://tempuri.org/ToLowerCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToUpperCase">
+      <soap12:operation soapAction="http://tempuri.org/ToUpperCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvertCase">
+      <soap12:operation soapAction="http://tempuri.org/InvertCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConvertCase">
+    <wsdl:port name="ConvertCaseSoap" binding="tns:ConvertCaseSoap">
+      <soap:address location="https://localhost:44332/ConvertCase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConvertCaseSoap12" binding="tns:ConvertCaseSoap12">
+      <soap12:address location="https://localhost:44332/ConvertCase.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
